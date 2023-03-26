@@ -283,10 +283,25 @@ img {
     }
   }
 
-  @media (max-width: 360px) {
+  @media screen and (max-width: 360px) {
     #direita {
       position: relative;
       top: 10px;
       left: 0;
+    }
+  }
+
+  @media only screen and (max-width: 300px) {
+    #container {
+      flex-direction: column;
+    }
+  
+    #esquerda {
+      width: 100%;
+    }
+  
+    #direita {
+      width: 100%;
+      margin-top: 20px;
     }
   }
