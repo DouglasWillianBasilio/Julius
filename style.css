@@ -24,6 +24,7 @@ body {
 #marca {
     background-color: white;
     padding: 10px;
+    text-align: center;
 }
 
 #marca * {
@@ -47,6 +48,7 @@ body {
     background-image: linear-gradient(to right, #4d13d1, #59abe3);
     padding: 50px 10px 30px 30px;
     color: white;
+    text-align: center;
 }
 
 #boasVindas {
@@ -88,6 +90,7 @@ body {
     font-size: 200%;
     padding: 10px;
     border-radius: 10px;
+    outline: none;
 }
 
 #arealancamentos {
@@ -146,10 +149,46 @@ body {
 
 #labelrenda {
     font-size: 250%;
+    display: block;
 }
 
 
 #renda {
     font-size: 500%;
-    color: var(--cor-destaque);
+}
+
+/*FORMULARIO*/
+
+#formulariolancamento {
+    display: none;
+    margin-top: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: "padrao";
+}
+
+#formulariolancamento input {
+    display: block;
+    margin: 5px 0px 20px 0px;
+    border: 1px solid black;
+    height: 30px;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: "padrao";
+    font-size: 110%;
+}
+
+#descricao {
+    width: 70%;
+}
+#botaolancar {
+    border: none;
+    outline: none;
+    background-color: var(--cor-destaque);
+    color: white;
+    font-family: "negrito";
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 130%;
 }
