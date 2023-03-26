@@ -242,6 +242,90 @@ img {
 
 }
 
+@media screen and (max-width: 590px){
+
+    form{
+        display: block;
+    }
+    #valor{
+        width: 50%;
+    }
+
+    #lancamentos {
+        font-size: 1.5rem;
+    }
+    #novolancamento{
+        display: flex;
+        margin-right: 100px;
+        font-size: 22px;
+    }
+
+    #direita {
+    background-color: white;
+    border-radius: 20px;
+    width: 10%;
+    padding: 20px;
+    text-align: right;
+    font-family: "negrito";
+    font-size: 10px;
+    }
+
+    #container {
+        flex-direction: column;
+      }
+    
+      #esquerda {
+        width: 100%;
+      }
+    
+      #direita {
+        width: 100%;
+        margin-top: 20px;
+      }
+}
+
+@media screen and (max-width: 490px){
+
+    form{
+        display: block;
+    }
+    #valor{
+        width: 50%;
+    }
+
+    #lancamentos {
+        font-size: 1.5rem;
+    }
+    #novolancamento{
+        display: flex;
+        margin-right: 100px;
+        font-size: 22px;
+    }
+
+    #direita {
+    background-color: white;
+    border-radius: 20px;
+    width: 10%;
+    padding: 20px;
+    text-align: right;
+    font-family: "negrito";
+    font-size: 10px;
+    }
+
+    #container {
+        flex-direction: column;
+      }
+    
+      #esquerda {
+        width: 100%;
+      }
+    
+      #direita {
+        width: 100%;
+        margin-top: 20px;
+      }
+}
+
 @media screen and (max-width: 390px){
 
     form{
