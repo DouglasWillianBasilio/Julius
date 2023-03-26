@@ -289,6 +289,14 @@ img {
       top: 10px;
       left: 0;
     }
+    #esquerda {
+        width: 100%;
+      }
+    
+      #direita {
+        width: 100%;
+        margin-top: 20px;
+      }
   }
 
   @media only screen and (max-width: 300px) {
