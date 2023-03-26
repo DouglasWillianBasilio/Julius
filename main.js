@@ -152,16 +152,22 @@ function renderizarLancamentos() {
              */
 
             let html = `
-                <div class="blocolancamento">
-                    <img src="img/${imagemLancamento}" alt="${classeLancamento}">
+            <div class="blocoLancamento">
+            <div class="botoes">
+                <img class="imagemLancamento" src="img/${imagemLancamento}" alt="${classeLancamento}">
 
-                    <div class="descricaolancamento">
-                        <span class="valor ${classeLancamento}"> R$ ${valor} </span>
-                        <span> ${dataLancamento} </span>
-                        <span> ${lancamento.descricao} </span>
-                    </div>
-                </div>
-            `;
+                <button class="botaoRemover" onclick="removerLancamento(${i})">
+                    <img src="img/lixeira.png" alt="Remover lançamento" />
+                </button>
+            </div>
+
+            <div class="descricaoLancamento">
+                <span class="valor ${classeLancamento}">R$ ${valor}</span>
+                <span>${dataLancamento}</span>
+                <span>${lancamento.descricao}</span>
+            </div>                    
+        </div>
+    `;
 
             htmlLancamentos += html;
         }
@@ -169,6 +175,29 @@ function renderizarLancamentos() {
         $('#arealancamentos').innerHTML = htmlLancamentos;
         renderizarDinheiroEmCaixa(dinheiroEmCaixa);
     }
+}
+
+/**
+ * Remove um lançamento pelo seu
+ * índice na lista de lançamentos
+ */
+function removerLancamento(indice) {
+    /**
+     * A função splice removerá 1 elemento
+     * a partir do índice apontado. O resultado
+     * disso é a remoção do item do índice
+     * apontado.
+     */
+    lancamentos.splice(indice, 1);
+
+    /**
+     * Atualiza o banco de dados local,
+     * a lista de blocos de lançamentos e
+     * o gráfico.
+     */
+    armazenarLancamentos();
+    renderizarLancamentos();
+    renderizarGrafico();
 }
 
 function renderizarDinheiroEmCaixa (dinheiroEmCaixa) {

@@ -29,6 +29,15 @@ body {
     vertical-align: middle;
 }
 
+img {
+    width: 30px;
+}
+
+.botaoRemover{
+    outline: none;
+    border: none;
+}
+
 #marca img {
     width: 80px;
     margin-right: 10px;
@@ -212,6 +221,9 @@ body {
     border-radius: 10px;
     font-size: 130%;
 }
+
+
+=====================
 
 @media screen and (max-width: 390px){
 
