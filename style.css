@@ -226,11 +226,20 @@ img {
 =====================
 
 
-@media only screen and (max-width: 768px) {
-    .container {
+@media  screen and (max-width: 768px) {
+    #container {
+        flex-direction: column;
+      }
+    
+      #esquerda {
         width: 100%;
-        padding: 0 20px;
-    }
+      }
+    
+      #direita {
+        width: 100%;
+        margin-top: 20px;
+      }
+
 }
 
 @media screen and (max-width: 390px){
