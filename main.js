@@ -60,7 +60,7 @@ function lancar(event) {
     let lancamento = {
         valor: parseFloat($('#valor').value) * multiplicadorValor,
         descricao: $('#descricao').value,
-        datalancamento: $('#datalancamento').value
+        dataLancamento: $('#dataLancamento').value,
     };
 
     lancamentos.push(lancamento);
@@ -71,9 +71,44 @@ function lancar(event) {
     $('#valor').focus();
 }
 
+
 function renderizarGrafico() {
+    
+
     if (lancamentos){
-        const lancamentosOrdenados = lancamentos.sort((a, b) => a.dataLancamento - b.dataLancamento);
+        const lancamentosOrdenados = 
+            lancamentos.sort((a, b) => new Date(a.dataLancamento) - new Date(b.dataLancamento));
+
+        let datas = [];
+        let valores = [];
+        let valorAtual = 0;
+        lancamentosOrdenados.forEach(lancamento => {
+            const data =
+                    new Date(lancamento.dataLancamento).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+                datas.push(data);
+
+            valorAtual += lancamento.valor;
+            valores.push(valorAtual);
+        });
+
+        const corCurva = valorAtual < 0 ? 'red' : 'blue';
+        const config = {
+            type: 'line',
+            data: {
+                labels: datas,
+                datasets: [{
+                    label: 'Comportamento do seu dinheiro',
+                    backgroundColor: corCurva,
+                    borderCorlor: corCurva,
+                    data: valores,
+                    fill: false
+                }]
+            },
+            options: opcoesGrafico
+        };
+
+        const contexto = $('#graficodinheiro').getContext('2d');
+        new Chart(contexto, config);
     }
 }
 
@@ -84,13 +119,18 @@ function armazenarLancamentos() {
 function limparFormulario() {
     $('#valor').value = '';
     $('#descricao').value = '';
-    $('#datalancamento').value = '';
+    $('#dataLancamento').value = '';
 }
 
 function renderizarLancamentos() {
     if(lancamentos) {
         let htmlLancamentos = '';
         let dinheiroEmCaixa = 0;
+        /**
+         * Ordena os lançamentos em ordem decrescente
+         */
+        lancamentos = 
+            lancamentos.sort((a, b) => new Date(a.dataLancamento) - new Date(b.dataLancamento));
 
         for( let i = lancamentos.length - 1; i > -1; i--){
             let lancamento = lancamentos[i];
@@ -104,7 +144,12 @@ function renderizarLancamentos() {
                 minimumFractionDigits: 2
             });
 
-            let dataLancamento = new Date(lancamento.dataLancamento).toLocaleDateString();
+            let dataLancamento =
+                new Date(lancamento.dataLancamento).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+
+            /**
+             * Adicionada a chamada à função de remoção de lançamentos
+             */
 
             let html = `
                 <div class="blocolancamento">
