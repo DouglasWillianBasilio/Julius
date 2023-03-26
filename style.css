@@ -179,6 +179,28 @@ body {
     font-size: 110%;
 }
 
+#blocotipolancamento {
+    margin: 5px 0px 20px 0px;
+}
+
+#blocotipolancamento input {
+    display: inline;
+    margin: 0px 0px;
+    vertical-align: middle;
+}
+
+.ganho {
+    color: #1900ff;
+}
+
+#blocotipolancamento label {
+    vertical-align: middle;
+    font-family: "negrito";
+    font-size: 120%;
+    margin-right: 10px;
+    padding-left: 5px;
+}
+
 #descricao {
     width: 70%;
 }

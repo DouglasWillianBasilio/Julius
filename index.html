@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!--BIBLIOTECA PARA O GRAFICO-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--BIBLIOTECA PARA O GRAFICO-->
     <title>Julius</title>
 </head>
 <body>
@@ -24,13 +27,20 @@
             <button id="novolancamento" onclick="alternarFormulario()">Novo lançamento</button>
 
             <div id="formulariolancamento">
-                <form>
+                <form onsubmit="lancar(event)">
+                    <div id="blocotipolancamento">
+                        <input type="radio" name="tipolancamento" id="entrada">
+                        <label for="entrada" class="ganho">Entrada</label>
+                        <input type="radio" name="tipolancamento" id="gasto" checked>
+                        <label for="gasto" class="gasto">Gasto</label>
+                        
+                    </div>
                     <label for="valor">Valor: </label>
-                    <input type="number" name="valor" id="valor">
+                    <input type="number" step="0.01" min="0" name="valor" id="valor" required>
                     <label for="descricao">Descrição: </label>
-                    <input type="text" name="descricao" id="descricao">
+                    <input type="text" name="descricao" id="descricao" required>
                     <label for="datalancamento">Data do lançamento: </label>
-                    <input type="date" name="datalancamento" id="datalancamento">
+                    <input type="date" name="datalancamento" id="datalancamento" required>
                     <button id="botaolancar">Lançar</button>
                 </form>
             </div>
@@ -41,8 +51,12 @@
         </div>
 
         <div id="direita">
-            <span id="labelrenda">Dinheiro em Caixa</span>
+            <span id="labelrenda">Total</span>
             <span id="renda">R$ 0</span>
+
+            <canvas id="graficodinheiro">
+                
+            </canvas>
         </div>
     </div>
 
